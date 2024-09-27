@@ -1,9 +1,11 @@
-const {CityService, CityService}=require('./../services/index');
+const {CityService}=require('./../services/index');
 const cityService=new CityService();
 
 const create=async(req,res)=>{
         try{
+          
             const city=await cityService.createCity(req.body);
+
             return res.status(201).json({
                 data:city,
                 success:true,
@@ -67,7 +69,7 @@ const update=async (req,res)=>{
 const get=async(req,res)=>{
         try{
 
-            const city=await cityService.getCity(req.params.id);
+            const city=await cityService.getCity(req.ps.id);
             return res.status(201).json({
                 data:city,
                 success:true,

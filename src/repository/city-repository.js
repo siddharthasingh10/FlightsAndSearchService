@@ -1,11 +1,13 @@
-// all the models can be also accesed from ../models/index so we can also write const {City}=require('../models/index')
-const {City}=require('../models/city')
 
-class cityRepository{
+const {City}=require('../models/index')
+
+class CityRepository{
 
     async createCity({name}){
     try{
+        console.log('city here')
         const city=await City.create({name});
+       
         return city; 
     }
     catch(error){
@@ -62,4 +64,4 @@ class cityRepository{
 
     }
 }
-module.exports=cityRepository;
+module.exports=CityRepository;
