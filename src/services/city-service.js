@@ -20,7 +20,7 @@ class cityService{
     }
     async deleteCity(cityId){
         try{
-               const response= await this.cityrepository.deleteCity(cityId);
+               const response= await this.cityRepository.deleteCity(cityId);
                 return response;
         }
         catch(error){
@@ -30,7 +30,7 @@ class cityService{
     }
     async updateCity(cityId,data){
         try{
-            const city=await this.cityrepository.updateCity(cityId,data);
+            const city=await this.cityRepository.updateCity(cityId,data);
             return city;
         }
         catch(error){
@@ -40,7 +40,7 @@ class cityService{
     }
     async getCity(cityId){
         try{
-        const city=await this.cityrepository.getCity(cityId);
+        const city=await this.cityRepository.getCity(cityId);
             return city;
         }
         catch(error){
