@@ -1,3 +1,4 @@
+
 const {CityService}=require('./../services/index');
 const cityService=new CityService();
 
@@ -80,15 +81,40 @@ const get=async(req,res)=>{
             })
         }
         catch(error){
-                console.log(error);
-                return res.status(500).json({
-                    data:{},
-                    success:false,
-                    message:'not able to fetch a city',
-                    err:error
-                })
+            console.log(error);
+            return res.status(500).json({
+                data:{},
+                success:false,
+                message:'not able to fetch a city',
+                err:error
+            })
         }
 }
+const getAll=async(req,res)=>{
+
+    try{
+        const city=await cityService.getAllCity();
+        return res.status(201).json({
+            data:city,
+            status:true,
+            message:'successfully fetched all cities',
+            err:{}
+        });
+    }
+    catch(error){
+
+        console.log(error);
+        return res.status(500).json({
+            data:{},
+            success:false,
+            message:'not able to fetch a city',
+            err:error
+        })
+    }
+
+
+}
+
 module.exports={
-    create,update,get,destroy
+    create,update,get,destroy,getAll
 }
