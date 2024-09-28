@@ -3,10 +3,10 @@ const {City}=require('../models/index')
 
 class CityRepository{
 
-    async createCity({name}){
+    async createCity(data){
     try{
         console.log('city here')
-        const city=await City.create({name});
+        const city=await City.create(data);
        
         return city; 
     }
@@ -31,7 +31,7 @@ class CityRepository{
         }
 
     }   
-    async getCity({cityId}){
+    async getCity(cityId){
         try{
             
                const city= await City.findOne({
