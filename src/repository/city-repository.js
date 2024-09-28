@@ -49,12 +49,23 @@ class CityRepository{
 
     }
     async updateCity(cityId,data){
-        try{
-                const city=await City.update(data,{
-                    where:{
-                        id:cityId
-                    }
-                })
+        try{    
+             // below both method will work , first one will not return updated object
+
+                // const city=await City.update(data,{
+                //     where:{
+                //         id:cityId
+                //     }, 
+                //     returning:true,// to show updation is done      
+                //     plain:true
+                // })
+
+            // this method is used to show which data is updaed in postman
+                
+            const city=await City.findByPk(cityId);
+                city.name=data.name
+                city.save();
+
                     return city;
         }
         catch(error){
