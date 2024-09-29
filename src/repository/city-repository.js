@@ -6,13 +6,13 @@ class CityRepository{
 
     async createCity(data){
     try{
-        console.log('city here')
+    
         const city=await City.create(data);
        
         return city; 
     }
     catch(error){
-        console.log('somethinh happended wrong in repository level')
+        console.log('somethinh happended wrong in city repository level')
         throw {error};
     }
     }
@@ -27,7 +27,7 @@ class CityRepository{
 
         }
         catch(error){
-            console.log('somethinh happended wrong in repository level')
+            console.log('somethinh happended wrong in city  repository level')
             throw {error};
         }
 
@@ -44,7 +44,7 @@ class CityRepository{
 
         }
         catch(error){
-            console.log('somethinh happended wrong in repository level')
+            console.log('somethinh happended wrong in  city repository level')
             throw {error};
         }
 
@@ -70,7 +70,7 @@ class CityRepository{
                     return city;
         }
         catch(error){
-            console.log('somethinh happended wrong in repository level')
+            console.log('somethinh happended wrong in city repository level')
             throw {error};
         }
 
@@ -81,7 +81,7 @@ class CityRepository{
             if(filter.name){
             const city=await City.findAll({
                 where:{
-                    name:{
+                    name:{ // means filteration is only being done for name
                         [Op.startsWith]: filter.name
                     }
                 }
@@ -92,7 +92,7 @@ class CityRepository{
             return city;
         }
         catch(error){
-            console.log('something wrong in repo layer');
+            console.log('something wrong in  city repo layer');
             throw {error}
         }
       
