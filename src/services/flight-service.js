@@ -1,6 +1,6 @@
 const airplane = require('../models/airplane');
 const { FlightRepository, AirplaneRepository } = require('../repository/index')
-
+const dateCompare=require('../utils/helper');
 class FlightService {
     constructor() {
         this.airplaneRepository = new AirplaneRepository();
@@ -10,7 +10,7 @@ class FlightService {
     async createFlight(data) {
 
         try {
-            console.log('here')
+           if(!dateCompare(data.arrivalTime,data.departureTime)) throw{error:'arrival can not be less than daparture'}
             // fetching airplane cause we need seat available in it in upcoming data airplaneid will be mention so extract that airplane   
             const airplane = await this.airplaneRepository.getAirplane(data.airplaneId);
             //while creating a flight the totalseat is fetched from airplane so we need that airplane and then airplane.capacity will give totalSeat
