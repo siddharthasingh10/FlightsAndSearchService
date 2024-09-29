@@ -21,9 +21,11 @@ class FlightRepository{
         }
 
     }
-    async getAllFlight(){
+    async getAllFlights(filter){
         try{
-            const flight=await Flights.findAllk()
+            const flight=await Flights.findAll({
+                where:filter
+            })
             return flight;
         }catch(error){
             console.log('Something wrong in repo flight layer in get all one')

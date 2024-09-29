@@ -4,6 +4,7 @@ const AirportController=require('../../controllers/airport-controller');
 const FlightController=require('../../controllers/flight-contoller')
 const router=express.Router();
 
+
 //ALL THE CITY ROUTES//
 router.post('/city',CityController.create);
 router.delete('/city/:id',CityController.destroy);
@@ -20,6 +21,8 @@ router.get('/city',CityController.getAll);
 
 //ALL THE FLIGHT ROUTES 
 router.post('/flights',FlightController.create);
+router.get('/flights',FlightController.getAll);
+router.get('/flights/:id',FlightController.get);
 
 
 
