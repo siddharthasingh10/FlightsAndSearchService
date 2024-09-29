@@ -8,7 +8,8 @@ class FlightService {
 
     }
     async createFlight(data) {
-
+        // in data we are getting
+// flightNumber airplaneId departureAirportId arrivalairportId arrivalTime departuretime Price totalseat-> ariplane
         try {
            if(!dateCompare(data.arrivalTime,data.departureTime)) throw{error:'arrival can not be less than daparture'}
             // fetching airplane cause we need seat available in it in upcoming data airplaneid will be mention so extract that airplane   
@@ -21,10 +22,31 @@ class FlightService {
         }
         catch (error) {
             console.log(error)
-            console.log('Something wrong in repo flight layer')
+            console.log('Something wrong in repo flight layer in createflight')
             throw { error }
         }
     }
+
+    async getFlight(flightId){
+        try{
+            const flight=await this.flightRepository.getFlight(flightId)
+            return flight;
+        }catch(error){
+            console.log('Something wrong in service flight layer in getone')
+            throw{error}
+        }
+    }
+    async getAllFlight(){
+        try{
+            const flight=await this.flightRepository.getFlight()
+            return flight;
+        }catch(error){
+            console.log('Something wrong in service flight layer in getall')
+            throw{error}
+        }
+    }
+
+
 }
 module.exports=FlightService;
 
