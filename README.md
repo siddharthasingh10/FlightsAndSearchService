@@ -23,3 +23,8 @@ once you have added db cofig as listed above,go to the src  folder from your ter
      -flight table  
      -Airport table
      -city table 
+
+###### TABLES #####
+ City table -> id,name,createdAt,udatedAt
+Airport table-> id ,name,adress,city_id,createdAt,updatedAt
+          RELATIONSHIP EXIST BETWEEN CITY AND AIRPORT -> a city can have multiple airport (one to many realtion )

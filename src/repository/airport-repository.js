@@ -1,3 +1,21 @@
+// const {CrudRepository} = require('./crud-repository');
+
+// const {Airport}=require('./../models/airport')
+// // using crud-repo
+// class AirportRepository extends CrudRepository{
+//     constructor(){
+   
+//         super(Airport);
+//     }
+// }
+// module.exports=AirportRepository;
+
+
+
+
+
+
+/////////    ///////////////////////////////////////////////////////////////////////////
 // const {Airport}=require('./../models/index');
 // const {Op}=require('sequelize')
 

@@ -13,7 +13,8 @@ router.patch('/city/:id',CityController.update);
 router.get('/city',CityController.getAll);
 
 //ALL THE AIRPORT ROUTES//
-// router.post('/airport',AirportController.create);
+// router.post('/airports',AirportController.create);
+
 // router.delete('/airport/:id',AirportController.destroy);
 // router.get('/airport/:id', AirportController.get);
 // router.patch('/airport/:id',AirportController.update);

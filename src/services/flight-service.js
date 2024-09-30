@@ -72,11 +72,11 @@ class FlightService {
         try {
             // Create the filter object using private method
             const filterObject = this.#createFilter(filter);
-     
-console.log(filterObject)
+
+
             // Use repository method to fetch all flights based on filter
             const flights = await this.flightRepository.getAllFlights(filterObject);
-    
+
             return flights;
         } catch (error) {
             console.log('Something went wrong in the FlightService layer (getAllFlights)');
