@@ -1,6 +1,6 @@
 
 const {Airport}=require('./../models/index');
-const {Op}=require('sequelize')
+const {Op}=require('sequelize');
 
 class AirportRepository{
     async createAirport(data){
@@ -14,6 +14,7 @@ class AirportRepository{
                 throw {error}
         }
     }
+
     async deleteAirport(airportId){
         try{
           await Airport.destroy({
@@ -88,7 +89,7 @@ module.exports=AirportRepository;
 // const {CrudRepository} = require('./crud-repository');
 
 // const {Airport}=require('./../models/airport')
-// // using crud-repo
+ // using crud-repo
 // class AirportRepository extends CrudRepository{
 //     constructor(){
    
