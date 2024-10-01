@@ -1,7 +1,7 @@
 
 const {FlightService}=require('./../services/index');
 const flightService=new FlightService();
-
+const {SuccessCodes}=require('../utils/error-code')
 const create=async(req,res)=>{
     try{
         // destructre all the mandatory data {what if user pass any extra req.body that we dont want }
@@ -16,7 +16,7 @@ const create=async(req,res)=>{
             arrivalTime:req.body.arrivalTime
         }
         const flight=await flightService.createFlight(flightData);
-        res.status(201).json({
+        res.status(SuccessCodes.CREATED).json({
             data:flight,
             success:true,
             message:'successfully created a flight'
@@ -37,7 +37,7 @@ const create=async(req,res)=>{
 const get=async(req,res)=>{
     try{
         const flight=await flightService.getFlight(req.params.id);
-        res.status(201).json({
+        res.status(SuccessCodes.OK).json({
             data:flight,
             success:true,
             message:'successfully fetched a flight'
@@ -58,7 +58,7 @@ const get=async(req,res)=>{
 const getAll=async(req,res)=>{
     try{
         const flight=await flightService.getAllFlights(req.query);
-        res.status(201).json({
+        res.status(SuccessCodes.OK).json({
             result:flight.length,
             data:flight,
             success:true,
