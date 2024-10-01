@@ -4,7 +4,18 @@ const flightService=new FlightService();
 
 const create=async(req,res)=>{
     try{
-        const flight=await flightService.createFlight(req.body);
+        // destructre all the mandatory data {what if user pass any extra req.body that we dont want }
+        const flightData={
+            //this are all the value that we are exprecting form req.body
+            flightNumber:req.body.flightNumber,
+            airplaneId:req.body.airplaneId,
+            departureAirportId:req.body.departureAirportId,
+            arrivalAirportId:req.body.arrivalAirportId,
+            price:req.body.price,
+            departureTime:req.body.departureTime,
+            arrivalTime:req.body.arrivalTime
+        }
+        const flight=await flightService.createFlight(flightData);
         res.status(201).json({
             data:flight,
             success:true,
